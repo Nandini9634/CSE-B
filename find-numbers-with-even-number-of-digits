@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int findNumbers(vector<int>& nums) {
+        int count=0,no,digits;
+         for(int i=0;i<nums.size();i++)
+	    {
+		digits=0;
+		no=nums[i];
+		//cout<<"heya"<<no<<endl;
+		while(no>0)
+		{
+			digits++;
+			no=no/10;
+		}
+		if(digits%2==0)
+		{
+			//cout<<digits<<"yo"<<endl;
+			++count;
+			//cout<<"hello "<<count;
+		}
+	}
+	return count;
+    }
+};
