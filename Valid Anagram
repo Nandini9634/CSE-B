@@ -1,0 +1,45 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        int flag=0;
+        
+        if(s=="" && t=="") return true;
+        else if((s=="" && t!="") || (s!="" && t=="")) return false;
+        else if(s.length() != t.length() ) return false;
+        else
+        {
+            map<char,int> m;
+	        for(int i=0;i<s.length();i++)
+	        {
+	            if(m.find(s[i]) == m.end()) m.insert(make_pair(s[i],1));
+	            else m[s[i]]++;
+	        }
+	        for(int i=0;i<t.length();i++)
+	        {
+	        if(m.find(t[i]) == m.end())
+	        {
+	            flag=0;
+	            break;
+	        }
+	        else
+	        {
+	            if(m[t[i]]==0) 
+	            {
+	                flag=0;
+	                break;
+	            }
+	            else
+	            {
+	                m[t[i]]--;
+	                flag=1;
+	            }
+	        }
+	    }
+	
+	    if(flag) return true;
+	    else return false;
+    }
+	
+	
+    }
+};
